@@ -2,7 +2,6 @@ import sbt.Keys._
 
 lazy val root = (project in file("."))
   .enablePlugins(GitVersioning, GitBranchPrompt)
-  .settings(scriptedSettings)
   .settings(
     sbtPlugin := true,
     organization := "io.buddho.sbt",
