@@ -10,14 +10,9 @@ lazy val root = (project in file("."))
     git.baseVersion := "0.1.0",
     scalaVersion := "2.10.6",
     scalacOptions += "-feature",
-    resolvers ++= Seq(
-      "Typesafe Releases Repository" at "http://repo.typesafe.com/typesafe/releases/"
-    ),
-
+    resolvers ++= Seq("Typesafe Releases Repository" at "http://repo.typesafe.com/typesafe/releases/"),
     addSbtPlugin("com.typesafe.sbt" % "sbt-js-engine" % "1.1.3"),
-
     scriptedLaunchOpts <+= version apply { v => s"-Dproject.version=$v" },
-
     bintrayOrganization := Option("buddho"),
     bintrayPackageLabels := Seq("sbt", "sbt-plugin", "ng-annotate"),
     bintrayReleaseOnPublish in ThisBuild := false,
@@ -26,5 +21,3 @@ lazy val root = (project in file("."))
     licenses += ("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0.html")),
     publish <<= publish dependsOn (test in Test)
   )
-
-
